@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes</title>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="note-viewer" class="hidden">
+        <div class="note-expanded">
+            <input type="text" name="note-title" id="note-title" placeholder="Title">
+            <textarea name="note-description" id="note-description" placeholder="Note"></textarea>
+            <div>
+                <button id="save-btn" onclick="createNote()">&check;</button>
+            </div>
+        </div>
+        <div id="note-viewer-bg" onclick="hideNoteViewer()"></div>
+    </div>
+
+    <div class="main-page">
+        <h1>Notes</h1>
+        <div id="notes-container">
+            <div id="new-note">
+                <div id="new-note-btn" onclick="onAddNoteClick()">
+                    <!-- <img src="plus-icon.png" alt="Icon of a plus symbol"> -->
+                    add new note
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

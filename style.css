@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+}
+
+#note-viewer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#note-viewer-bg {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.note-expanded{
+    z-index: 2;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.note-expanded input {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.note-expanded textarea {
+    flex: 1;
+    margin-top: 0.3rem;
+    font-size: large;
+    font-weight: normal;
+}
+
+.note-expanded div {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#save-btn {
+    width: 64px;
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+    font-size: x-large;
+    margin-top: 0.5rem;
+}
+
+.main-page {
+    padding: 2rem;
+}
+
+#notes-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 2rem;
+}
+
+#new-note {
+    width: 200px;
+    height: 300px;
+}
+
+#new-note-btn {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    /* font-size: 250px; */
+    font-size: x-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+    transform-origin: center;
+    color: white;
+    background-color: #007bff;
+    border-color: #007bff;
+    cursor: pointer;
+}
+
+#new-note-btn:hover {
+    width: 102%;
+    height: 102%;
+    background-color: #0069D9;
+    border-color: #0069D9;
+}
+
+#new-note-btn img {
+    max-width: 100px;
+}
+
+.note {
+    width: 200px;
+    height: 300px;
+}
+
+.note-btn {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    border-radius: 20px;
+    border: 1px solid;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.note-btn:hover {
+    width: 102%;
+    height: 102%;
+}
+
+.hidden {
+    display: none !important;
+    opacity: 0;
+}
