@@ -29,6 +29,15 @@ function onAddNoteClick() {
 }
 
 function createNote() {
+    if(titleInput.value === "" && descInput.value === ""){
+        hideNoteViewer();
+        return;
+    }
+
+    if(titleInput.value === ""){
+        titleInput.value = "no title"
+    }
+
     let note = document.createElement('div')
     note.classList.add('note')
 
