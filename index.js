@@ -18,6 +18,8 @@ function displayNoteViewer() {
 
 function hideNoteViewer() {
     console.log('hiding')
+    titleInput.value = ""
+    descInput.value = ""
     noteViewer.classList.add('hidden')
 }
 
