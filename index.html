@@ -7,12 +7,15 @@
     <title>Notes</title>
     <script src="index.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div id="note-viewer" class="hidden">
         <div class="note-expanded">
-            <input type="text" name="note-title" id="note-title" placeholder="Title">
+            <input type="text" name="note-title" id="note-title" placeholder="Title" autocomplete="off">
             <textarea name="note-description" id="note-description" placeholder="Note"></textarea>
             <div>
                 <button id="save-btn" onclick="createNote()">&check;</button>
@@ -22,7 +25,7 @@
     </div>
 
     <div class="main-page">
-        <h1>Notes</h1>
+        <span id="app-title">Notes</span>
         <div id="notes-container">
             <div id="new-note">
                 <div id="new-note-btn" onclick="onAddNoteClick()">

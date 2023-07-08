@@ -1,5 +1,11 @@
 body {
     margin: 0;
+    font-family: 'Roboto';
+}
+
+#app-title {
+    font-size: xx-large;
+    font-weight: 100;
 }
 
 #note-viewer {
@@ -33,15 +39,23 @@ body {
 }
 
 .note-expanded input {
-    font-size: x-large;
-    font-weight: bold;
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: 400;
+    border: none;
+    outline: none;
+    
 }
 
 .note-expanded textarea {
     flex: 1;
     margin-top: 0.3rem;
-    font-size: large;
-    font-weight: normal;
+    font-family: 'Roboto';
+    font-size: 18px;
+    font-weight: 100;
+    border: none;
+    outline: none;
+    resize: none;
 }
 
 .note-expanded div {
@@ -56,6 +70,13 @@ body {
     color: white;
     font-size: x-large;
     margin-top: 0.5rem;
+    cursor: pointer;
+    transition: all 0.5s;
+    border-radius: 3px;
+}
+
+#save-btn:hover {
+background-color: #0069D9;
 }
 
 .main-page {
@@ -78,24 +99,24 @@ body {
 #new-note-btn {
     width: 100%;
     height: 100%;
-    border-radius: 20px;
-    /* font-size: 250px; */
+    border-radius: 5px;
     font-size: x-large;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all 0.5s;
     transform-origin: center;
-    color: white;
-    background-color: #007bff;
+    color: #007bff;
+    background-color: white;
     border-color: #007bff;
+    border: 1px solid;
     cursor: pointer;
 }
 
 #new-note-btn:hover {
     width: 102%;
     height: 102%;
-    background-color: #0069D9;
+    color: #0069D9;
     border-color: #0069D9;
 }
 
@@ -112,16 +133,30 @@ body {
     width: 100%;
     height: 100%;
     padding: 1rem;
-    border-radius: 20px;
+    border-radius: 5px;
     border: 1px solid;
     box-sizing: border-box;
     cursor: pointer;
     transition: all 0.5s;
+    box-shadow: 2px 2px 5px rgb(193, 193, 193);
 }
 
 .note-btn:hover {
     width: 102%;
     height: 102%;
+}
+
+.note-btn-title {
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.note-btn-desc {
+    font-family: 'Roboto';
+    font-size: 18px;
+    font-weight: normal;
+    font-weight: 100;
 }
 
 .hidden {

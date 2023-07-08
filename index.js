@@ -18,7 +18,6 @@ function displayNoteViewer() {
 
 function hideNoteViewer() {
     console.log('hiding')
-
     noteViewer.classList.add('hidden')
 }
 
@@ -34,10 +33,12 @@ function createNote() {
     let noteBtn = document.createElement('div')
     noteBtn.classList.add("note-btn")
 
-    let title = document.createElement('h1')
+    let title = document.createElement('span')
+    title.classList.add('note-btn-title')
     title.innerHTML = titleInput.value
 
     let description = document.createElement('p')
+    description.classList.add("note-btn-desc")
     description.innerHTML = descInput.value
 
     noteBtn.appendChild(title)
@@ -58,9 +59,6 @@ function createNote() {
 }
 
 function editNote(noteIndex){
-    titleInput.value = noteArr[noteIndex].get
-    titleInput.value = noteArr[noteIndex].find('p').innerHTML
-
     displayNoteViewer()
 }
 
