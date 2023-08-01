@@ -2,181 +2,114 @@ html * {
   font-family: "Roboto";
 }
 
+html,
 body {
-  margin: 0;
-}
-
-#app-title {
-  font-size: xx-large;
-  font-weight: 100;
-}
-
-#note-viewer {
-  position: absolute;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#note-viewer-bg {
-  background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.note-expanded {
-  z-index: 2;
-  width: 400px;
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  border-radius: 10px;
-  border: 1px solid;
-  box-sizing: border-box;
-  background-color: white;
-}
-
-.note-expanded input {
-  font-size: 20px;
-  font-weight: 400;
-  border: none;
-  outline: none;
-}
-
-.note-expanded textarea {
-  flex: 1;
-  margin-top: 0.3rem;
-  font-size: 18px;
-  font-weight: 100;
-  border: none;
-  outline: none;
-  resize: none;
-}
-
-.note-expanded div {
-  display: flex;
-  justify-content: flex-end;
-}
-
-#save-btn {
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-
-  width: 64px;
-  background-color: #007bff;
-  border-color: #007bff;
-  color: white;
-  font-size: x-large;
-  margin-top: 0.5rem;
-  cursor: pointer;
-  transition: all 0.5s;
-  border-radius: 3px;
-}
-
-#save-btn:hover {
-  background-color: #0069d9;
-}
-
-.main-page {
-  padding: 2rem;
-}
-
-#notes-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding-top: 2rem;
-}
-
-#new-note {
-  width: 200px;
-  height: 300px;
-}
-
-#new-note-btn {
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-  font-size: x-large;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.5s;
-  transform-origin: center;
-  color: #007bff;
-  background-color: white;
-  border-color: #007bff;
-  border: 1px solid;
-  cursor: pointer;
-}
-
-#new-note-btn:hover {
-  width: 102%;
-  height: 102%;
-  color: #0069d9;
-  border-color: #0069d9;
-}
-
-#new-note-btn img {
-  max-width: 100px;
-}
-
-.note {
-  width: 200px;
-  height: 300px;
-}
-
-.note-btn {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  border-radius: 5px;
-  border: 1px solid gray;
-  box-sizing: border-box;
-  cursor: pointer;
-  transition: all 0.5s;
-}
-
-.note-btn:hover {
-  width: 102%;
-  height: 102%;
-}
-
-.note-btn-title {
-  font-size: 20px;
-  font-weight: 400;
-}
-
-.note-btn-desc {
-  flex-grow: 1;
-  font-size: 18px;
-  font-weight: 100;
-  overflow-wrap: break-word;
-  white-space: pre-line;
+  max-width: 100%;
+  max-height: 100%;
   overflow: hidden;
 }
 
-.note-btn-date {
-  align-self: flex-end;
-  font-size: 12px;
-  font-weight: 100;
-  font-style: italic;
-  color: gray;
+body {
+  margin: 0;
+  display: flex;
 }
 
-.hidden {
-  display: none !important;
-  opacity: 0;
+header {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  box-sizing: border-box;
+  border-bottom: solid black 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+textarea {
+  flex: 1;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  color: white;
+}
+
+svg {
+  stroke: #9b9a9d;
+}
+
+.control-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  border-radius: 5px;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  transition: all 0.5s;
+}
+
+.control-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+svg {
+  width: 20px;
+  height: 20px;
+}
+
+#sidebar-controls {
+  width: 300px;
+  padding: 10px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(32px);
+  box-sizing: border-box;
+  border-right: solid rgba(0, 0, 0, 0.1) 1px;
+}
+
+#note-editor-controls {
+  padding: 5px 5px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  backdrop-filter: blur(32px);
+}
+
+#note-editor-controls div {
+  display: flex;
+  gap: 10px;
+}
+
+.sidebar {
+  margin: 0;
+  padding-top: 43px;
+  width: 300px;
+  background-color: #211d27;
+  height: 100%;
+}
+
+#notes-container {
+  height: 100%;
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  border-right: solid black 1px;
+}
+
+#note-editor {
+  padding-top: 64px;
+  padding-left: 16px;
+  padding-right: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: #1e1e1e;
+  overflow-y: scroll;
 }

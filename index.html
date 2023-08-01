@@ -10,31 +10,64 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
 <body>
-    <div id="note-viewer" class="hidden">
-        <div class="note-expanded">
-            <input type="text" name="note-title" id="note-title" placeholder="Title" autocomplete="off">
-            <textarea name="note-description" id="note-description" placeholder="Note"></textarea>
+    <header>
+        <div id="sidebar-controls">
+            <button id="add-note-btn" class="control-btn" onclick="">
+                <img data-feather="file-plus" alt="Create a note">
+            </button>
+            <button id="delete-note-btn" class="control-btn" onclick="">
+                <img data-feather="trash" alt="Delete">
+            </button>
+        </div>
+        <div id="note-editor-controls">
+            <button class="control-btn" onclick="onAddNoteClick()">
+                <img data-feather="edit" alt="Create a note">
+            </button>
+
             <div>
-                <button id="save-btn" onclick="createNote()">&check;</button>
+                <button class="control-btn" onclick="onAddNoteClick()">
+                    <img data-feather="type" alt="Choose a style to apply to text">
+                </button>
+                <button class="control-btn" onclick="onAddNoteClick()">
+                    <img data-feather="list" alt="Make a checklist">
+                </button>
+                <button class="control-btn" onclick="onAddNoteClick()">
+                    <img data-feather="table" alt="Add a table">
+                </button>
+            </div>
+            <div>
+                <button class="control-btn" onclick="onAddNoteClick()">
+                    <img data-feather="link" alt="Add a link">
+                </button>
+                <button class="control-btn" onclick="onAddNoteClick()">
+                    <img data-feather="image" alt="Open the photo browser">
+                </button>
+                <button class="control-btn" onclick="onAddNoteClick()">
+                    <img data-feather="lock" alt="Add or remove password locks">
+                </button>
             </div>
         </div>
-        <div id="note-viewer-bg" onclick="hideNoteViewer()"></div>
+    </header>
+
+
+    <div class="sidebar">
+        <div id="notes-container"></div>
     </div>
 
-    <div class="main-page">
-        <span id="app-title">Notes</span>
-        <div id="notes-container">
-            <div id="new-note">
-                <div id="new-note-btn" onclick="onAddNoteClick()">
-                    <!-- <img src="plus-icon.png" alt="Icon of a plus symbol"> -->
-                    add new note
-                </div>
-            </div>
-        </div>
+    <div id="note-editor">
+        <div class="header"></div>
+        <button id="date-btn">1 August 2023, 12:05</button>
+        <textarea name="note-description" id="note-description" placeholder="Note"></textarea>
+
     </div>
+
+    <script>
+        feather.replace()
+    </script>
 </body>
 
 </html>
