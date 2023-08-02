@@ -21,8 +21,8 @@ header {
   position: fixed;
   display: flex;
   box-sizing: border-box;
-  border-bottom: solid black 1px;
-  background-color: rgba(255, 255, 255, 0.1);
+  /* border-bottom: solid black 1px; */
+  /* background-color: rgba(255, 255, 255, 0.1); */
 }
 
 textarea {
@@ -47,6 +47,7 @@ svg {
   border: none;
   background-color: transparent;
   transition: all 0.5s;
+  cursor: pointer;
 }
 
 .control-btn:hover {
@@ -77,6 +78,7 @@ svg {
   justify-content: space-between;
   box-sizing: border-box;
   backdrop-filter: blur(32px);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 #note-editor-controls div {
@@ -86,7 +88,7 @@ svg {
 
 .sidebar {
   margin: 0;
-  padding-top: 43px;
+  padding-top: 52px;
   width: 300px;
   background-color: #211d27;
   height: 100%;
@@ -95,8 +97,11 @@ svg {
 #notes-container {
   height: 100%;
   width: 100%;
-  padding-left: 16px;
-  padding-right: 16px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 16px;
   overflow-x: hidden;
   overflow-y: scroll;
   box-sizing: border-box;
@@ -112,4 +117,41 @@ svg {
   flex: 1;
   background-color: #1e1e1e;
   overflow-y: scroll;
+}
+
+#date-btn {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.note {
+  padding: 5px 16px;
+  border-radius: 5px;
+  padding: 10px 16px;
+  color: white;
+  cursor: default;
+}
+
+.pressed {
+  background-color: #9d8028;
+}
+
+.selected {
+  background-color: #464646;
+}
+
+.note-title {
+  font-size: small;
+}
+
+.note-date {
+  font-size: smaller;
+}
+
+.note-header {
+  font-size: smaller;
+  color: rgba(255, 255, 255, 0.5);
 }
