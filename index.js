@@ -1,81 +1,55 @@
-let noteViewer;
-let notesContainer;
-let titleInput;
-let descInput;
-let noteArr = [];
+const date = new Date();
 
-document.addEventListener("DOMContentLoaded", function (event) {
-  noteViewer = document.getElementById("note-viewer");
-  notesContainer = document.getElementById("notes-container");
-  titleInput = document.getElementById("note-title");
-  descInput = document.getElementById("note-description");
-});
+const notesContainer = document.getElementById("notes-container");
+let pressedNote = null;
 
-function displayNoteViewer() {
-  console.log("displaying");
-  noteViewer.classList.remove("hidden");
+function CreateNote() {
+  let note = document.createElement("div");
+  note.classList.add("note");
+  note.addEventListener("click", (event) => onNotePress(event));
+  if (pressedNote !== null) {
+    pressedNote.classList.remove("pressed");
+    pressedNote.classList.remove("selected");
+  }
+  note.classList.add("selected");
+  pressedNote = note;
+
+  let noteTitle = document.createElement("span");
+  noteTitle.classList.add("note-title");
+  noteTitle.innerHTML = "New Note";
+
+  let noteDate = document.createElement("span");
+  noteDate.classList.add("note-date");
+  noteDate.innerHTML = `${date.getHours()}:${date.getMinutes()} `;
+
+  let noteHeader = document.createElement("span");
+  noteHeader.classList.add("note-header");
+  noteHeader.innerHTML = "No additional text";
+
+  note.appendChild(noteTitle);
+  note.appendChild(document.createElement("br"));
+  note.appendChild(noteDate);
+  note.appendChild(noteHeader);
+
+  //   notesContainer.appendChild(note);
+  notesContainer.insertBefore(note, notesContainer.children[0]);
 }
 
-function hideNoteViewer() {
-  console.log("hiding");
-  titleInput.value = "";
-  descInput.value = "";
-  noteViewer.classList.add("hidden");
+function onNotePress(event) {
+  if (pressedNote !== null) {
+    pressedNote.classList.remove("pressed");
+    pressedNote.classList.remove("selected");
+  }
+  event.target.classList.add("pressed");
+  pressedNote = event.target;
+}
+
+function onTextareaClick() {
+  if (pressedNote === null) {
+    CreateNote();
+  }
 }
 
 function onAddNoteClick() {
-  console.log("test");
-  displayNoteViewer();
-}
-
-function createNote() {
-  if (titleInput.value === "" && descInput.value === "") {
-    hideNoteViewer();
-    return;
-  }
-
-  if (titleInput.value === "") {
-    titleInput.value = "no title";
-  }
-
-  let note = document.createElement("div");
-  note.classList.add("note");
-
-  let noteBtn = document.createElement("div");
-  noteBtn.classList.add("note-btn");
-
-  let title = document.createElement("span");
-  title.classList.add("note-btn-title");
-  title.innerHTML = titleInput.value;
-
-  let description = document.createElement("p");
-  description.classList.add("note-btn-desc");
-  description.innerHTML = descInput.value;
-  console.log(descInput.value);
-
-  let lastUpdatedDate = document.createElement("span");
-  lastUpdatedDate.classList.add("note-btn-date");
-  let date = new Date().toString().split(" ");
-  lastUpdatedDate.innerHTML = `${date[4]}, ${date[0]} ${date[2]} ${date[1]} ${date[3]}`;
-
-  noteBtn.appendChild(title);
-  noteBtn.appendChild(description);
-  noteBtn.appendChild(lastUpdatedDate);
-  noteBtn.addEventListener("click", () => editNote(noteArr.length));
-
-  note.appendChild(noteBtn);
-  notesContainer.appendChild(note);
-
-  noteArr.push(note);
-
-  titleInput.value = "";
-  descInput.value = "";
-
-  hideNoteViewer();
-
-  console.log(noteArr);
-}
-
-function editNote(noteIndex) {
-  displayNoteViewer();
+  CreateNote();
 }

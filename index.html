@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notes</title>
-    <script src="index.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,33 +55,18 @@
 
     <div class="sidebar">
         <div id="notes-container">
-            <div class="note pressed">
-                <span class="note-title">Test Note Title</span>
-                <br>
-                <span class="note-date">Date</span>
-                <span class="note-header">Test Note Header</span>
-            </div>
-            <div class="note selected">
-                <span class="note-title">Test Note Title</span>
-                <br>
-                <span class="note-date">Date</span>
-                <span class="note-header">Test Note Header</span>
-            </div>
-            <div class="note">
-                <span class="note-title">Test Note Title</span>
-                <br>
-                <span class="note-date">Date</span>
-                <span class="note-header">Test Note Header</span>
-            </div>
         </div>
     </div>
 
     <div id="note-editor">
         <div class="header"></div>
         <button id="date-btn">1 August 2023, 12:05</button>
-        <textarea name="note-description" id="note-description" placeholder="Note"></textarea>
+        <textarea name="note-description" id="note-description" placeholder="Note"
+            onclick="onTextareaClick()"></textarea>
 
     </div>
+
+    <script src="index.js"></script>
 
     <script>
         feather.replace()
