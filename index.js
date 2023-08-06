@@ -1,16 +1,20 @@
 const date = new Date();
+let notesArr = [];
+let pressedNote = null;
 
 const notesContainer = document.getElementById("notes-container");
-let pressedNote = null;
+const noteDate = document.getElementById("date-btn");
+const noteBody = document.getElementById("note-body");
 
 function CreateNote() {
   let note = document.createElement("div");
-  note.classList.add("note");
+  note.classList.add("note", "new-note");
   note.addEventListener("click", (event) => onNotePress(event));
   if (pressedNote !== null) {
     pressedNote.classList.remove("pressed");
     pressedNote.classList.remove("selected");
   }
+
   note.classList.add("selected");
   pressedNote = note;
 
@@ -31,8 +35,17 @@ function CreateNote() {
   note.appendChild(noteDate);
   note.appendChild(noteHeader);
 
-  //   notesContainer.appendChild(note);
   notesContainer.insertBefore(note, notesContainer.children[0]);
+
+  noteBody.focus();
+}
+
+function DeleteNote(elem = null) {
+  if (elem === null) {
+    pressedNote.remove();
+  } else {
+    elem.remove();
+  }
 }
 
 function onNotePress(event) {
@@ -40,13 +53,16 @@ function onNotePress(event) {
     pressedNote.classList.remove("pressed");
     pressedNote.classList.remove("selected");
   }
-  event.target.classList.add("pressed");
-  pressedNote = event.target;
+  let note = event.target.closest(".note");
+  note.classList.add("pressed");
+  pressedNote = note;
 }
 
 function onTextareaClick() {
   if (pressedNote === null) {
     CreateNote();
+  } else {
+    pressedNote.classList.add("selected");
   }
 }
 

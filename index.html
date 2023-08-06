@@ -18,7 +18,7 @@
             <button id="add-note-btn" class="control-btn" onclick="">
                 <img data-feather="file-plus" alt="Create a note">
             </button>
-            <button id="delete-note-btn" class="control-btn" onclick="">
+            <button id="delete-note-btn" class="control-btn" onclick="DeleteNote()">
                 <img data-feather="trash" alt="Delete">
             </button>
         </div>
@@ -61,8 +61,7 @@
     <div id="note-editor">
         <div class="header"></div>
         <button id="date-btn">1 August 2023, 12:05</button>
-        <textarea name="note-description" id="note-description" placeholder="Note"
-            onclick="onTextareaClick()"></textarea>
+        <textarea name="note-body" id="note-body" placeholder="Note" onclick="onTextareaClick()"></textarea>
 
     </div>
 
