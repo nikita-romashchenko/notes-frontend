@@ -6,6 +6,14 @@ const notesContainer = document.getElementById("notes-container");
 const noteDate = document.getElementById("date-btn");
 const noteBody = document.getElementById("note-body");
 
+const sidebarResizeDiv = document.getElementById("sidebar-resize");
+
+sidebarResizeDiv.addEventListener(
+  "mousedown",
+  (event) => onResizeSidebar(event),
+  false
+);
+
 function CreateNote() {
   let note = document.createElement("div");
   note.classList.add("note", "new-note");
@@ -68,4 +76,10 @@ function onTextareaClick() {
 
 function onAddNoteClick() {
   CreateNote();
+}
+
+function onResizeSidebar(event) {
+  console.log(event.target);
+  mousePos = { x: event.clientX, y: event.clientY };
+  document.addEventListener("mousemove", () => {}, false);
 }
