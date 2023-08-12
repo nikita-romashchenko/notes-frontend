@@ -1,16 +1,34 @@
 const date = new Date();
 let notesArr = [];
 let pressedNote = null;
+let resizing = false;
 
 const notesContainer = document.getElementById("notes-container");
 const noteDate = document.getElementById("date-btn");
 const noteBody = document.getElementById("note-body");
 
+const sidebar = document.getElementById("sidebar");
+const sidebarControls = document.getElementById("sidebar-controls");
 const sidebarResizeDiv = document.getElementById("sidebar-resize");
 
-sidebarResizeDiv.addEventListener(
-  "mousedown",
-  (event) => onResizeSidebar(event),
+sidebarResizeDiv.addEventListener("mousedown", () => (resizing = true), false);
+
+document.addEventListener(
+  "mousemove",
+  (event) => {
+    if (resizing) {
+      sidebar.style.width = `${event.clientX}px`;
+      sidebarControls.style.width = `${event.clientX}px`;
+    }
+  },
+  false
+);
+
+document.addEventListener(
+  "mouseup",
+  () => {
+    resizing = false;
+  },
   false
 );
 
@@ -79,7 +97,5 @@ function onAddNoteClick() {
 }
 
 function onResizeSidebar(event) {
-  console.log(event.target);
-  mousePos = { x: event.clientX, y: event.clientY };
-  document.addEventListener("mousemove", () => {}, false);
+  resizing = true;
 }
