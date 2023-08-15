@@ -11,6 +11,12 @@ const sidebar = document.getElementById("sidebar");
 const sidebarControls = document.getElementById("sidebar-controls");
 const sidebarResizeDiv = document.getElementById("sidebar-resize");
 
+window.onload = () => {
+  const savedSidebarWidth = window.localStorage.getItem("sidebarWidth");
+  sidebar.style.width = savedSidebarWidth;
+  sidebarControls.style.width = savedSidebarWidth;
+};
+
 sidebarResizeDiv.addEventListener("mousedown", () => (resizing = true), false);
 
 document.addEventListener(
@@ -19,6 +25,7 @@ document.addEventListener(
     if (resizing) {
       sidebar.style.width = `${event.clientX}px`;
       sidebarControls.style.width = `${event.clientX}px`;
+      window.localStorage.setItem("sidebarWidth", `${event.clientX}px`);
     }
   },
   false
@@ -50,7 +57,7 @@ function CreateNote() {
 
   let noteDate = document.createElement("span");
   noteDate.classList.add("note-date");
-  noteDate.innerHTML = `${date.getHours()}:${date.getMinutes()} `;
+  noteDate.innerHTML = `${date.getHours()}:${date.getMinutes()}`;
 
   let noteHeader = document.createElement("span");
   noteHeader.classList.add("note-header");
@@ -94,8 +101,4 @@ function onTextareaClick() {
 
 function onAddNoteClick() {
   CreateNote();
-}
-
-function onResizeSidebar(event) {
-  resizing = true;
 }
