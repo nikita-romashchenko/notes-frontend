@@ -11,33 +11,61 @@ const sidebar = document.getElementById("sidebar");
 const sidebarControls = document.getElementById("sidebar-controls");
 const sidebarResizeDiv = document.getElementById("sidebar-resize");
 
-window.onload = () => {
+window.onload = init;
+
+function init() {
   const savedSidebarWidth = window.localStorage.getItem("sidebarWidth");
-  sidebar.style.width = savedSidebarWidth;
-  sidebarControls.style.width = savedSidebarWidth;
-};
-
-sidebarResizeDiv.addEventListener("mousedown", () => (resizing = true), false);
-
-document.addEventListener(
-  "mousemove",
-  (event) => {
-    if (resizing) {
-      sidebar.style.width = `${event.clientX}px`;
-      sidebarControls.style.width = `${event.clientX}px`;
-      window.localStorage.setItem("sidebarWidth", `${event.clientX}px`);
+  if (savedSidebarWidth !== null) {
+    sidebar.style.width = `${savedSidebarWidth}px`;
+    sidebarControls.style.width = `${savedSidebarWidth}px`;
+    if (savedSidebarWidth >= 400) {
+      sidebarResizeDiv.style.left = "390px";
+    } else if (savedSidebarWidth <= 150) {
+      sidebarResizeDiv.style.left = "140px";
+    } else {
+      sidebarResizeDiv.style.left = `${savedSidebarWidth - 10}px`;
     }
-  },
-  false
-);
+  } else {
+    sidebar.style.width = "250px";
+    sidebarControls.style.width = "250px";
+    sidebarResizeDiv.style.left = "240px";
+  }
 
-document.addEventListener(
-  "mouseup",
-  () => {
-    resizing = false;
-  },
-  false
-);
+  sidebarResizeDiv.addEventListener(
+    "mousedown",
+    () => {
+      resizing = true;
+    },
+    false
+  );
+
+  document.addEventListener(
+    "mousemove",
+    (event) => {
+      if (resizing) {
+        sidebar.style.width = `${event.clientX}px`;
+        sidebarControls.style.width = `${event.clientX}px`;
+        if (event.clientX >= 400) {
+          sidebarResizeDiv.style.left = "390px";
+        } else if (event.clientX <= 150) {
+          sidebarResizeDiv.style.left = "140px";
+        } else {
+          sidebarResizeDiv.style.left = `${event.clientX - 10}px`;
+        }
+        window.localStorage.setItem("sidebarWidth", event.clientX);
+      }
+    },
+    false
+  );
+
+  document.addEventListener(
+    "mouseup",
+    () => {
+      resizing = false;
+    },
+    false
+  );
+}
 
 function CreateNote() {
   let note = document.createElement("div");
