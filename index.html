@@ -13,7 +13,9 @@
 </head>
 
 <body>
-    <header>
+    <div id="sidebar">
+        <div id="sidebar-resize"></div>
+
         <div id="sidebar-controls">
             <button id="add-note-btn" class="control-btn" onclick="">
                 <img data-feather="file-plus" alt="Create a note">
@@ -22,6 +24,12 @@
                 <img data-feather="trash" alt="Delete">
             </button>
         </div>
+        <div id="notes-container">
+        </div>
+    </div>
+
+
+    <div id="right-side-container">
         <div id="note-editor-controls">
             <button class="control-btn" onclick="onAddNoteClick()">
                 <img data-feather="edit" alt="Create a note">
@@ -50,21 +58,12 @@
                 </button>
             </div>
         </div>
-    </header>
 
-
-    <div class="sidebar" id="sidebar">
-        <div id="notes-container">
+        <div id="note-editor">
+            <div class="header"></div>
+            <button id="date-btn">1 August 2023, 12:05</button>
+            <textarea name="note-body" id="note-body" onclick="onTextareaClick()"></textarea>
         </div>
-        <!-- <div class="sidebar-resize"></div> -->
-    </div>
-
-    <div id="sidebar-resize"></div>
-
-    <div id="note-editor">
-        <div class="header"></div>
-        <button id="date-btn">1 August 2023, 12:05</button>
-        <textarea name="note-body" id="note-body" placeholder="Note" onclick="onTextareaClick()"></textarea>
     </div>
 
 

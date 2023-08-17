@@ -5,7 +5,8 @@ html * {
 html,
 body {
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  min-height: 100vh;
   max-width: 100%;
   max-height: 100%;
   overflow: hidden;
@@ -34,6 +35,7 @@ textarea {
   background-color: transparent;
   outline: none;
   color: white;
+  resize: none;
 }
 
 svg {
@@ -49,8 +51,7 @@ svg {
   margin: 0;
   border: none;
   background-color: transparent;
-  transition: all 0.5s;
-  cursor: pointer;
+  transition: background-color 0.5s;
 }
 
 .control-btn:hover {
@@ -69,34 +70,23 @@ svg {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* backdrop-filter: blur(32px); */
-  box-sizing: border-box;
-  border-right: solid rgba(0, 0, 0, 0.1) 1px;
 }
 
-/* .blur {
-  -webkit-filter: blur(30px);
-  -moz-filter: blur(30px);
-  -o-filter: blur(30px);
-  -ms-filter: blur(30px);
-  filter: url(#blur);
-  filter: blur(30px);
-  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='3');
-  -webkit-transition: 2s -webkit-filter linear;
-  -moz-transition: 2s -moz-filter linear;
-  -o-transition: 2s -o-filter linear;
-  transition: 2s filter linear;
-} */
+#right-side-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+}
 
 #note-editor-controls {
-  padding: 5px 5px;
-  flex: 1;
+  padding: 10px 5px;
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  /* backdrop-filter: blur(32px); */
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #211d27;
 }
 
 #note-editor-controls div {
@@ -104,44 +94,42 @@ svg {
   gap: 10px;
 }
 
-.sidebar {
+#sidebar {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  position: relative;
   margin: 0;
-  padding-top: 52px;
   min-width: 150px;
   max-width: 400px;
-  background-color: #211d27;
   height: 100%;
+  box-sizing: border-box;
+  border-right: solid rgba(0, 0, 0, 0.1) 1px;
+  background-color: #211d27;
 }
 
 #sidebar-resize {
-  width: 20px;
-  /* background-color: rgba(255, 0, 0, 0.1); */
+  width: 11px;
   height: 100%;
   position: absolute;
+  right: -6px;
   cursor: col-resize;
 }
 
 #notes-container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 16px 10px;
+  padding: 10px;
+  padding-bottom: 0px;
   overflow-x: hidden;
   overflow-y: scroll;
-  box-sizing: border-box;
   transition: all 4s;
 }
 
 #note-editor {
-  padding-top: 64px;
   padding-left: 16px;
   padding-right: 16px;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  width: 100%;
+  height: 100%;
   background-color: #1e1e1e;
   overflow-y: scroll;
 }
@@ -152,6 +140,7 @@ svg {
   border: none;
   background-color: transparent;
   color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
 }
 
 .divider-horizontal {
@@ -162,9 +151,8 @@ svg {
 }
 
 .note {
-  padding: 5px 16px;
+  padding: 12px 25px;
   border-radius: 5px;
-  padding: 10px 16px;
   color: white;
   cursor: default;
   white-space: nowrap;

@@ -8,7 +8,6 @@ const noteDate = document.getElementById("date-btn");
 const noteBody = document.getElementById("note-body");
 
 const sidebar = document.getElementById("sidebar");
-const sidebarControls = document.getElementById("sidebar-controls");
 const sidebarResizeDiv = document.getElementById("sidebar-resize");
 
 window.onload = init;
@@ -17,18 +16,8 @@ function init() {
   const savedSidebarWidth = window.localStorage.getItem("sidebarWidth");
   if (savedSidebarWidth !== null) {
     sidebar.style.width = `${savedSidebarWidth}px`;
-    sidebarControls.style.width = `${savedSidebarWidth}px`;
-    if (savedSidebarWidth >= 400) {
-      sidebarResizeDiv.style.left = "390px";
-    } else if (savedSidebarWidth <= 150) {
-      sidebarResizeDiv.style.left = "140px";
-    } else {
-      sidebarResizeDiv.style.left = `${savedSidebarWidth - 10}px`;
-    }
   } else {
     sidebar.style.width = "250px";
-    sidebarControls.style.width = "250px";
-    sidebarResizeDiv.style.left = "240px";
   }
 
   sidebarResizeDiv.addEventListener(
@@ -44,14 +33,6 @@ function init() {
     (event) => {
       if (resizing) {
         sidebar.style.width = `${event.clientX}px`;
-        sidebarControls.style.width = `${event.clientX}px`;
-        if (event.clientX >= 400) {
-          sidebarResizeDiv.style.left = "390px";
-        } else if (event.clientX <= 150) {
-          sidebarResizeDiv.style.left = "140px";
-        } else {
-          sidebarResizeDiv.style.left = `${event.clientX - 10}px`;
-        }
         window.localStorage.setItem("sidebarWidth", event.clientX);
       }
     },
