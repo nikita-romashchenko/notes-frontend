@@ -13,6 +13,10 @@ const sidebarResizeDiv = document.getElementById("sidebar-resize");
 window.onload = init;
 
 function init() {
+  const token = window.localStorage.getItem("authToken");
+  if (token === null) {
+    window.location.replace("/auth/auth.html");
+  }
   const savedSidebarWidth = window.localStorage.getItem("sidebarWidth");
   if (savedSidebarWidth !== null) {
     sidebar.style.width = `${savedSidebarWidth}px`;
