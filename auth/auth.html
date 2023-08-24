@@ -14,18 +14,42 @@
 </head>
 
 <body>
-    <div class="card">
-        <span class="card-title">Sign In</span>
-        <div class="divider"></div>
-        <input type="text" name="username" id="sign-in-username" placeholder="Username">
-        <input type="password" name="password" id="sign-in-password" placeholder="Password">
-        <div class="card-options">
-            <input type="checkbox" name="remember-me" id="remember-me">
-            <span>Remember me</span>
-            <a href="">Forgot password?</a>
+    <div id="page-left-side">
+        <div class="card">
+            <span class="card-title">Sign in</span>
+            <div class="group-divider"></div>
+            <form action="">
+                <input type="text" name="username" id="sign-in-username" placeholder="Username">
+                <input type="password" name="password" id="sign-in-password" placeholder="Password">
+                <div class="card-options">
+                    <label for="remember-me">
+                        <input type="checkbox" name="remember-me" id="remember-me">
+                        Remember me
+                    </label>
+                    <a href="">Forgot password?</a>
+                </div>
+                <button type="submit">Sign in</button>
+            </form>
+
         </div>
-        <button>Sign in</button>
     </div>
+    <div id="page-right-side">
+        <div class="card">
+            <span class="card-title">Sign up</span>
+            <div class="group-divider"></div>
+            <form action="">
+                <input type="text" name="username" id="sign-up-username" placeholder="Username">
+                <input type="password" name="password" id="sign-up-password" placeholder="Password">
+                <input type="password" name="repeat-password" id="sign-up-repeat-password"
+                    placeholder="Repeat password">
+                <button type="submit">Sign up</button>
+            </form>
+
+        </div>
+    </div>
+
+    <object id="waves" data="../Vectors.svg"> </object>
+
     <script src="auth.controller.js"></script>
 </body>
 
