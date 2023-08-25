@@ -1,5 +1,6 @@
 body {
   display: flex;
+  background-color: #e5e5e5;
 }
 
 #page-left-side,
@@ -11,12 +12,22 @@ body {
   align-items: center;
 }
 
-#page-left-side {
-  background-color: #e5e5e5;
+.divider {
+  display: flex;
+  width: auto;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  font-size: 64px;
+  font-weight: 100;
+  color: #224957;
 }
 
-#page-right-side {
-  background-color: #093545;
+.divider-line {
+  flex: 1;
+  width: 1px;
+  background: repeating-linear-gradient(0deg, #093545 0 10px, #0000 0 20px);
 }
 
 .card {
@@ -36,7 +47,7 @@ body {
   height: 30px;
 }
 
-#page-right-side input:not([type="checkbox"]) {
+input:not([type="checkbox"]) {
   width: 300px;
   height: 45px;
   box-sizing: border-box;
@@ -48,41 +59,17 @@ body {
   color: white;
 }
 
-#page-left-side input:not([type="checkbox"]) {
-  width: 300px;
-  height: 45px;
-  box-sizing: border-box;
-  padding: 0 20px;
-  background-color: #224957;
-  font-size: 14px;
-  border: none;
-  border-radius: 10px;
-  color: white;
-}
-
-#page-left-side .card-title {
+.card-title {
   color: #224957;
 }
 
-#page-left-side label {
+label {
   color: #093545;
 }
 
-#page-left-side button {
-  color: #093545;
-}
-
-#page-left-side a {
+a {
   color: black;
   text-decoration: none;
-}
-
-#page-right-side {
-  color: white;
-}
-
-#page-right-side button {
-  color: white;
 }
 
 input::placeholder {
@@ -91,11 +78,25 @@ input::placeholder {
 
 input[type="checkbox"] {
   accent-color: #20df7f;
+  cursor: pointer;
 }
 
-input:not([type="submit"]),
-a {
-  outline-color: #20df7f;
+label {
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+  /* -webkit-transition: all 1s; */
+  transition: all 1s;
+  /* filter: brightness(100%); */
+  /* background-image: linear-gradient(rgb(0 0 0/0%) 0 0); */
+}
+
+button:hover {
+  /* -webkit-filter: brightness(50%);
+  filter: brightness(50%); */
+  /* background-image: linear-gradient(rgb(0 0 0/40%) 0 0); */
 }
 
 .card-options {
@@ -106,10 +107,10 @@ a {
 }
 
 .card-options a {
-  color: #20df7f;
+  color: black;
 }
 
-button {
+button[type="submit"] {
   height: 45px;
   width: 300px;
   border: none;
@@ -117,10 +118,7 @@ button {
   background-color: #20df7f;
   transition: background-color 0.3s;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
-}
-
-button:active {
-  background-color: #20df7f;
+  color: #093545;
 }
 
 form {
@@ -133,4 +131,12 @@ form {
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+
+#color-theme-button {
+  position: fixed;
+  left: 36px;
+  bottom: 36px;
+  border: none;
+  background-color: transparent;
 }
