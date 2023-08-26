@@ -47,6 +47,17 @@ body {
   height: 30px;
 }
 
+.card-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card-options a {
+  color: black;
+}
+
 input:not([type="checkbox"]) {
   width: 300px;
   height: 45px;
@@ -87,27 +98,7 @@ label {
 
 button {
   cursor: pointer;
-  /* -webkit-transition: all 1s; */
-  transition: all 1s;
-  /* filter: brightness(100%); */
-  /* background-image: linear-gradient(rgb(0 0 0/0%) 0 0); */
-}
-
-button:hover {
-  /* -webkit-filter: brightness(50%);
-  filter: brightness(50%); */
-  /* background-image: linear-gradient(rgb(0 0 0/40%) 0 0); */
-}
-
-.card-options {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.card-options a {
-  color: black;
+  transition: all 0.5s;
 }
 
 button[type="submit"] {
@@ -119,6 +110,10 @@ button[type="submit"] {
   transition: background-color 0.3s;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   color: #093545;
+}
+
+button[type="submit"]:hover {
+  background-color: #1ec973;
 }
 
 form {
@@ -139,4 +134,9 @@ form {
   bottom: 36px;
   border: none;
   background-color: transparent;
+  fill: #1ec973;
+}
+
+#color-theme-button:hover {
+  filter: brightness(90%);
 }
