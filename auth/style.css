@@ -101,7 +101,8 @@ button {
   transition: all 0.5s;
 }
 
-button[type="submit"] {
+#sign-in-button,
+#sign-up-button {
   height: 45px;
   width: 300px;
   border: none;
@@ -112,7 +113,8 @@ button[type="submit"] {
   color: #093545;
 }
 
-button[type="submit"]:hover {
+#sign-in-button:hover,
+#sign-up-button:hover {
   background-color: #1ec973;
 }
 
