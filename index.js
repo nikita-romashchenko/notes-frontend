@@ -1,3 +1,7 @@
+import EditorJS from "./editorjs.mjs";
+// import { Header } from "./editorjsTools/header.bundle.mjs";
+import Header from "./editorjsTools/header.index.mjs";
+
 const date = new Date();
 let notesArr = [];
 let pressedNote = null;
@@ -13,7 +17,7 @@ const sidebarResizeDiv = document.getElementById("sidebar-resize");
 window.onload = init;
 
 function init() {
-  const token = window.localStorage.getItem("authToken");
+  const token = window.localStorage.getItem("ACCESS_TOKEN");
   if (token === null) {
     window.location.replace("/auth/auth.html");
   }
@@ -24,6 +28,17 @@ function init() {
     sidebar.style.width = "250px";
   }
 
+  //Editor.js initialization
+  // const editor = new EditorJS({
+  //   holder: "editorjs",
+  //   tools: {
+  //     header: Header,
+  //   },
+  // });
+
+  // const editor = new EditorJS();
+
+  //sidebarResizingEvents
   sidebarResizeDiv.addEventListener(
     "mousedown",
     () => {

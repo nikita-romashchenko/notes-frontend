@@ -63,12 +63,14 @@
         <div id="note-editor">
             <div class="header"></div>
             <button id="date-btn">1 August 2023, 12:05</button>
-            <textarea name="note-body" id="note-body" onclick="onTextareaClick()"></textarea>
+            <!-- <textarea name="note-body" id="note-body" onclick="onTextareaClick()"></textarea> -->
+            <div id="editorjs" onclick="onTextareaClick()"></div>
+
         </div>
     </div>
 
 
-    <script src="index.js"></script>
+    <script src="index.js" type="module"></script>
 
     <script>
         feather.replace()
