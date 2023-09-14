@@ -1,5 +1,4 @@
 import { signIn, signUp } from "../api/auth.api.js";
-import { ACCESS_TOKEN } from "../constants.js";
 
 const signInUsername = document.getElementById("sign-in-username");
 const signInPassword = document.getElementById("sign-in-password");
