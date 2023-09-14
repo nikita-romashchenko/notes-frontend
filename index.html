@@ -11,6 +11,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/checklist@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
 </head>
 
 <body>
@@ -63,8 +67,7 @@
         <div id="note-editor">
             <div class="header"></div>
             <button id="date-btn">1 August 2023, 12:05</button>
-            <!-- <textarea name="note-body" id="note-body" onclick="onTextareaClick()"></textarea> -->
-            <div id="editorjs" onclick="onTextareaClick()"></div>
+            <div id="editorjs"></div>
 
         </div>
     </div>
@@ -73,7 +76,7 @@
     <script src="index.js" type="module"></script>
 
     <script>
-        feather.replace()
+        // feather.replace()
     </script>
 </body>
 
