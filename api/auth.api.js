@@ -1,5 +1,4 @@
 import { SERVER_ADDRESS } from "../constants.js";
-import { ACCESS_TOKEN } from "../constants.js";
 
 export const signUp = async (username, password) => {
   console.log(JSON.stringify({ username, password }));
