@@ -1,13 +1,15 @@
-import { SERVER_ADDRESS } from "../constants";
-import { ACCESS_TOKEN } from "../constants";
+import { SERVER_ADDRESS } from "../constants.js";
+import { ACCESS_TOKEN } from "../constants.js";
 
 const getNotes = async () => {
   const response = await fetch(`${SERVER_ADDRESS}notes/`, {
-    method: "get",
+    method: "GET",
     headers: {
-      Authentication: `Bearer ${ACCESS_TOKEN}`,
+      Authorization: `Bearer ${ACCESS_TOKEN}`,
     },
   });
   const data = await response.json();
   return data;
 };
+
+export { getNotes };
