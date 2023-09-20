@@ -1,3 +1,25 @@
+:root {
+  /* monochrome colors */
+  --monochrome-1: #1b2b34;
+  --monochrome-2: #343d46;
+  --monochrome-3: #4f5b66;
+  --monochrome-4: #65737e;
+  --monochrome-5: #a6adba;
+  --monochrome-6: #bfc5ce;
+  --monochrome-7: #cdd3de;
+  --monochrome-8: #d8dee9;
+
+  /* main colors */
+  --red: #ec5e67;
+  --orange: #f99156;
+  --yellow: #fac863;
+  --green: #99c794;
+  --turquoise: #5fb3b3;
+  --blue: #6699cc;
+  --twilight: #c593c5;
+  --brown: #ab7967;
+}
+
 html * {
   font-family: "Roboto";
 }
