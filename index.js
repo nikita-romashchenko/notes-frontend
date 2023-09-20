@@ -1,7 +1,4 @@
-import EditorJS from "./editorjs.mjs";
-// import { Header } from "./editorjsTools/header.bundle.mjs";
-import Header from "./editorjsTools/header.index.mjs";
-
+import { getNotes } from "./api/app.api.js";
 const date = new Date();
 let notesArr = [];
 let pressedNote = null;
@@ -21,6 +18,7 @@ function init() {
   if (token === null) {
     window.location.replace("/auth/auth.html");
   }
+
   const savedSidebarWidth = window.localStorage.getItem("sidebarWidth");
   if (savedSidebarWidth !== null) {
     sidebar.style.width = `${savedSidebarWidth}px`;
@@ -28,13 +26,26 @@ function init() {
     sidebar.style.width = "250px";
   }
 
-  //Editor.js initialization
-  // const editor = new EditorJS({
-  //   holder: "editorjs",
-  //   tools: {
-  //     header: Header,
-  //   },
-  // });
+  feather.replace();
+
+  // Editor.js initialization
+  const editor = new EditorJS({
+    holder: "editorjs",
+    tools: {
+      header: Header,
+      checklist: {
+        class: Checklist,
+        inlineToolbar: true,
+      },
+      list: {
+        class: List,
+        inlineToolbar: true,
+        config: {
+          defaultStyle: "unordered",
+        },
+      },
+    },
+  });
 
   // const editor = new EditorJS();
 
